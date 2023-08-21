@@ -9,7 +9,6 @@ public interface UserService {
     List<User> listUsers();
     void delete(int id);
 
-    //void edit(User user);
     User findUser(int id);
     public void updateUser(User user);
 }

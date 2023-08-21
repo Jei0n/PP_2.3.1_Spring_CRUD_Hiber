@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:c="">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Customer Manager</title>
+    <title>Users</title>
 </head>
 <body>
 <div align="center">
@@ -23,8 +23,7 @@
                 <td th:utext="${u.email}"></td>
                 <td>
                     <a th:href="@{/{id}/edit(id=${u.getId()})}">Edit</a>
-
-                    <!--<a th:href="@/{id}/delete" ">Delete</a>!-->
+                    <a th:href="@{/delete/{id}(id=${u.getId()})}">Delete</a>
                 </td>
             </tr>
     </table>

@@ -30,11 +30,14 @@ public class PeopleController {
 
     @GetMapping("/new")
     public String newUser(@ModelAttribute("user") User user) {
+        System.out.println("Редирект");
+
         return "/new";
     }
 
-    @PostMapping()
+    @PostMapping("/new")
     public String create(@ModelAttribute("user") User user) {
+        System.out.println("Добавление");
         userService.add(user);
         return "redirect:/";
     }
@@ -51,29 +54,9 @@ public class PeopleController {
         return "redirect:/";
     }
 
-    @DeleteMapping("/{id}")
+    @GetMapping("/delete/{id}")
     public String delete(@PathVariable("id") int id) {
         userService.delete(id);
         return "redirect:/";
     }
-
-
-
-
-//    @GetMapping()
-//    public String index(Model model) {
-//        return null;
-//    }
-//
-//
-//    @GetMapping("/{id}")
-//    public String show(@PathVariable("id") int id, Model model) {
-//        return "";
-//    }
-//
-//    @GetMapping("/new")
-//    public String addUser(Model model) {
-//        //model.addAttribute("user", userService.add(new User()));
-//        return "people/new";
-//    }
 }

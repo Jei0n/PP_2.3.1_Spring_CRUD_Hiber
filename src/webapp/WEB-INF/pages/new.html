@@ -7,16 +7,25 @@
 <body>
 <div align="center">
     <h2>New User</h2>
-    <form th:method = "POST" th:action="@{/}" th:object="${user}">
-        <label for = "name">Enter first name:</label>
-        <input type="text" th:field="*{firstName}" id="name">
-        <label for="lastName">Last Name: </label>
-        <input type="text" th:field="*{lastName}" id="lastName"/>
-        <label for="email">Email </label>
-        <input type="text" th:field="*{email}" id="email"/>
-        <br/>
-        <input type="submit" value="Create!">
+    <form th:action="@{/new}" th:object="${user}" method="POST">
+        <fieldset>
+            <legend>User</legend>
+            <p>
+                <label th:for="firstName">Name: </label>
+                <input type="text" name="firstName" th:id="firstName" th:value="${user.getFirstName()}">
+            </p>
+            <p>
+                <label th:for="lastName">Surename :</label>
+                <input type="text" name="lastName" th:id="lastName" th:value="${user.getLastName()}">
+            </p>
+            <p>
+                <label th:for="email">Email: </label>
+                <input type="text" name="email" th:id="email" th:value="${user.getEmail()}">
+            </p>
+        </fieldset>
+        <button type="submit">Save</button>
     </form>
+    <br/>
 </div>
 </body>
 </html>
